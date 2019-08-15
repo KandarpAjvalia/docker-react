@@ -1,0 +1,15 @@
+version: '3'
+services: 
+  web:
+    build:
+      # Where we want all the resources for this image to be pulled from 
+      context: .
+      dockerfile: Dockerfile.dev
+    ports: 
+      - "3000:3000"
+    volumes: 
+      # Do not try to map a folder against node_modules inside the container
+      - /app/node_modules
+
+      # Current folder outside the container to the app folder inside the container
+      - .:/app
