@@ -13,8 +13,6 @@ services:
 
       # Current folder outside the container to the app folder inside the container
       - .:/app
-    environment:
-      - CHOKIDAR_USEPOLLING=true
   tests:
     build: 
       context: .
@@ -23,6 +21,4 @@ services:
       - /app/node_modules
 
       - .:/app
-    environment:
-      - CHOKIDAR_USEPOLLING=true
     command: ["npm", "run", "test"]
